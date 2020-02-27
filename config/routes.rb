@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'temperment/index'
+  get 'temperment/show'
   get 'country_origin/index'
   get 'country_origin/show'
   get 'cat_breed/index'
