@@ -1,2 +1,7 @@
-<h1>Cat#index</h1>
-<p>Find me in app/views/cat/index.html.erb</p>
+<% if @cats.empty?%>
+  <p>There are not cats for adoption. :(</p>
+<% else %>
+  <% @cats.each do |cat|%>
+    <h2 class="subtitle"><%= cat.name %></h2>
+  <%end%>
+<% end %>
