@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_060637) do
+ActiveRecord::Schema.define(version: 2020_02_28_224521) do
 
   create_table "cat_breeds", force: :cascade do |t|
     t.string "breed_name"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 2020_02_28_060637) do
   create_table "country_origins", force: :cascade do |t|
     t.text "country_name"
     t.string "abbreviation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "permalink"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
