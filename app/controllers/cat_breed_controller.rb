@@ -2,10 +2,10 @@
 
 class CatBreedController < ApplicationController
   def index
-    @breeds = Cat_breed.all
+    @breeds = CatBreed.all
   end
 
   def show
-    @breed = Cat_breed.find(params[:id])
+    @breed = CatBreed.find(params[:id])
   end
 end

@@ -15,7 +15,16 @@
   <body>
   <section class="section">
     <div class="container">
-    <h1 class="title">Adopt Me</h1>
+    <header>
+      <h1 class="title">Adopt Me</h1>
+
+      <p class = "navbar-item">
+        <%= link_to 'Home', root_path%> |
+        <%= link_to 'Cats', cat_index_path%> |
+        <%= link_to 'Cat breeds', cat_breed_index_path%> |
+        <%= link_to 'Countries', country_origin_index_path%>
+      </p>
+    </header>
 
     <%= yield %>
 
