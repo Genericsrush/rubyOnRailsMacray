@@ -2,10 +2,10 @@
 
 Rails.application.routes.draw do
   root to: 'welcome#index'
-  get 'temperment/index'
-  get 'temperament/:id', to: 'temperment#show', id: /\d+/
-  get 'country_origin/index'
-  get 'country_origin/:id', to: 'country_origin#show'
+  get 'temperments', to: 'temperment#index'
+  get 'temperament/:id', to: 'temperment#show', as: 'temperament'
+  get 'countries', to: 'country_origin#index'
+  get 'country_origin/:id', to: 'country_origin#show', as: 'country'
   get 'cat_breeds', to: 'cat_breed#index'
   get 'cat_breed/:id', to: 'cat_breed#show', as: 'cat_breed'
   get 'welcome/index'
