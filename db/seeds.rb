@@ -20,10 +20,9 @@ CountryOrigin.destroy_all
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Temperament.csv'))
 csv = CSV.parse(csv_text, headers: true)
 csv.each do |row|
-  t = Temperament.new
-  t.behavour = row['Behavour']
-  t.description = row['Description']
-  t.save
+  t = Temperament.create(behavour: row['Behavour'],
+                         description: row['Description'])
+
   puts "#{t.behavour} saved"
 end
 
@@ -40,19 +39,18 @@ end
 csv_text3 = File.read(Rails.root.join('lib', 'seeds', 'CatBreeds.csv'))
 csv3 = CSV.parse(csv_text3, headers: true)
 csv3.each do |row|
-  c = CatBreed.new
-  c.breed_name = row['breedName']
-  c.country_origin = CountryOrigin.find_by(abbreviation: row['country_codes'])
-  c.age_range = row['age_range']
-  c.save
+  c = CatBreed.create!(breed_name: row['breedName'],
+                       country_origin: CountryOrigin.find_by(country_name: row['origin']),
+                       age_range: row['age_range'])
+  4.times do
+    cat = c.cats.create(name: Faker::Name.first_name,
+                        shots: true)
+    2.times do
+      offset = rand(Temperament.count)
+      cat.cat_temps.create(temperament: Temperament.offset(offset).first)
+    end
+  end
   puts "#{c.breed_name} saved"
-end
-
-50.times do
-  Cat.create(name: Faker::Name.first_name, shots: true, cat_breed: CatBreed.limit(1).order('RANDOM()').first)
-end
-150.times do
-  CatTemp.create(cat: Cat.limit(1).order('RANDOM()').first, temperament: Temperament.limit(1).order('RANDOM()').first)
 end
 
 puts "There are now #{CatTemp.count} rows in the CatTemp table"

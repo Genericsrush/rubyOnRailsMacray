@@ -1,2 +1,8 @@
-<h1>CatBreed#index</h1>
-<p>Find me in app/views/cat_breed/index.html.erb</p>
+<h1 class="subtitle">Cat Breeds</h1>
+<% if @cat_breeds.empty?%>
+  <p>There are no cat breeds to show!</p>
+<% else %>
+  <% @cat_breeds.each do |cat_breed|%>
+    <h2><%= link_to cat_breed.breed_name, cat_breed%></h2>
+  <%end%>
+<% end %>

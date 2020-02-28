@@ -1,7 +1,8 @@
+<h2 class="subtitle">Cats</h2>
 <% if @cats.empty?%>
   <p>There are not cats for adoption. :(</p>
 <% else %>
   <% @cats.each do |cat|%>
-    <h2 class="subtitle"><%= link_to cat.name, cat%></h2>
+    <h2><%= link_to cat.name, cat%></h2>
   <%end%>
 <% end %>

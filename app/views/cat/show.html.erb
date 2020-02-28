@@ -1,10 +1,21 @@
-<h2 class="subtitle"><%=@cat.name%></h2>
-<p><%=@cat.shots%></p>
-<h3 class="subtitle">Temperament(s)</h3>
-<ul>
-<%@cat.temperaments.each do |temp|%>
-<li><%=temp.behavour%></li>
+
+<h2 class="subtitle">Name: <%=@cat.name%></h2>
+
+<h2>Got shots?</h2>
+<%if @cat.shots%>
+<p>Yes</p>
+<%else%>
+<p>No</p>
 <%end%>
+
+<h3 class="subtitle">Temperament(s)</h3>
+
+<ul>
+  <%@cat.temperaments.each do |temp|%>
+  <li><%=link_to temp.behavour,temp%></li>
+  <%end%>
 </ul>
+
 <h3 class="subtitle">Breed</h3>
-<p><%=@cat.cat_breed.breed_name%></p>
+
+<h1><%=link_to @cat.cat_breed.breed_name, cat_breed_path(@cat.cat_breed)%></h1>

@@ -1,2 +1,6 @@
-<h1>CountryOrigin#show</h1>
-<p>Find me in app/views/country_origin/show.html.erb</p>
+<h1 class="subtitle"><%=@country_origin.country_name%></h1>
+<p>Abbreviation: <%=@country_origin.abbreviation%></p>
+<h1 class="subtitle">Cats that live in this country.</h1>
+<%@country_origin.breeds do |breed|%>
+  <h1><%=breed.breed_name%></h1>
+<%end%>

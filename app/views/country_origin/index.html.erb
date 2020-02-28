@@ -1,2 +1,8 @@
-<h1>CountryOrigin#index</h1>
-<p>Find me in app/views/country_origin/index.html.erb</p>
+<h2 class="subtitle">Countries</h2>
+<% if @countries.empty?%>
+  <p>There are not cats for adoption. :(</p>
+<% else %>
+  <% @countries.each do |country_origin|%>
+    <h2><%= link_to country_origin.country_name, country_origin%></h2>
+  <%end%>
+<% end %>

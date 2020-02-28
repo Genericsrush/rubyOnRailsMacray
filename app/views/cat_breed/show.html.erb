@@ -1,2 +1,7 @@
-<h1>CatBreed#show</h1>
-<p>Find me in app/views/cat_breed/show.html.erb</p>
+<h1 class="subtitle"><%=@cat_breed.breed_name%></h1>
+<p>They live for around <%=@cat_breed.age_range%> years.</p>
+<p>Country of origin: <%=link_to @cat_breed.country_origin.country_name, country_origin_url%>.</p>
+<h1 class="subtitle">Cats available</h1>
+<%@cat_breed.cats.each do |cat|%>
+  <h2><%=link_to cat.name, cat%></h2>
+<%end%>
