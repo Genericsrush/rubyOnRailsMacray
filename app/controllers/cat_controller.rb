@@ -1,6 +1,6 @@
 class CatController < ApplicationController
   def show
-    @cat = Cat.find(:id)
+    @cat = Cat.find(params[:id])
   end
 
   def index
