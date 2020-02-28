@@ -1,2 +1,10 @@
-<h1>Cat#show</h1>
-<p>Find me in app/views/cat/show.html.erb</p>
+<h2 class="subtitle"><%=@cat.name%></h2>
+<p><%=@cat.shots%></p>
+<h3 class="subtitle">Temperament(s)</h3>
+<ul>
+<%@cat.temperaments.each do |temp|%>
+<li><%=temp.behavour%></li>
+<%end%>
+</ul>
+<h3 class="subtitle">Breed</h3>
+<p><%=@cat.cat_breed.breed_name%></p>

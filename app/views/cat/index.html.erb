@@ -2,6 +2,6 @@
   <p>There are not cats for adoption. :(</p>
 <% else %>
   <% @cats.each do |cat|%>
-    <h2 class="subtitle"><%= cat.name %></h2>
+    <h2 class="subtitle"><%= link_to cat.name, cat%></h2>
   <%end%>
 <% end %>
